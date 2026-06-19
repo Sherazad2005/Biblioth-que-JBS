@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bibliothèque de logiciels — La Salle Saint-Denis</title>
+  <style>
+    :root {
+      --bg: #1a1a2e;
+      --bg2: #16213e;
+      --green: #4caf50;
+      --green-dark: #3d9140;
+      --yellow: #ffc107;
+      --yellow-dark: #e0a800;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: #1a1a2e;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--bg) 0%, var(--bg2) 100%);
+      color: #fff;
+      padding: 2.5rem 1.5rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0 0 .4rem;
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: .5px;
+    }
+    header p {
+      margin: 0;
+      opacity: .8;
+      font-size: 1rem;
+    }
+
+    .search-wrap {
+      max-width: 500px;
+      margin: 1.6rem auto 0;
+    }
+    #search {
+      width: 100%;
+      padding: .8rem 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+      font-family: inherit;
+      box-shadow: 0 2px 8px rgba(0,0,0,.25);
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.4rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.18);
+      padding: 1.3rem 1.2rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 22px rgba(0,0,0,.28);
+    }
+
+    .thumb {
+      width: 88px;
+      height: 88px;
+      margin-bottom: 1rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--bg) 0%, var(--bg2) 100%);
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      user-select: none;
+    }
+
+    .name {
+      margin: 0 0 1rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-block;
+      width: 100%;
+      padding: .6rem 1rem;
+      border: none;
+      border-radius: 8px;
+      font-size: .95rem;
+      font-weight: 600;
+      font-family: inherit;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background .15s ease;
+    }
+    .btn-open {
+      background: var(--green);
+      color: #fff;
+    }
+    .btn-open:hover { background: var(--green-dark); }
+    .btn-download {
+      background: var(--yellow);
+      color: #1a1a2e;
+    }
+    .btn-download:hover { background: var(--yellow-dark); }
+    .btn-missing {
+      background: #e0e0e0;
+      color: #888;
+      cursor: not-allowed;
+    }
+
+    .empty {
+      grid-column: 1 / -1;
+      text-align: center;
+      color: #fff;
+      opacity: .7;
+      padding: 2rem;
+      font-size: 1.1rem;
+    }
+
+    footer {
+      text-align: center;
+      color: #fff;
+      opacity: .5;
+      padding: 1.5rem;
+      font-size: .85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Bibliothèque de logiciels</h1>
+    <p>La Salle Saint-Denis</p>
+    <div class="search-wrap">
+      <input type="search" id="search" placeholder="Rechercher un logiciel…" autocomplete="off" aria-label="Rechercher un logiciel">
+    </div>
+  </header>
+
+  <main>
+    <div class="grid" id="grid">
+
+      <!-- BiologiePlaisir -->
+      <article class="card">
+        <div class="thumb"></div>
+        <h2 class="name">BiologiePlaisir</h2>
+        <a class="btn btn-download" href="Lien_zip_images/BiologiePlaisir/biologieplaisir.zip" download>Télécharger</a>
+      </article>
+
+      <!-- Chronoscoupe -->
+      <article class="card">
+        <div class="thumb"></div>
+        <h2 class="name">Chronoscoupe</h2>
+        <a class="btn btn-download" href="Lien_zip_images/Chronoscoupe/Chronocoupe.zip" download>Télécharger</a>
+      </article>
+
+      <!-- Commande -->
+      <article class="card">
+        <div class="thumb"></div>
+        <h2 class="name">Commande</h2>
+        <a class="btn btn-download" href="Lien_zip_images/Commande/cmd.zip" download>Télécharger</a>
+      </article>
+
+      <!-- Cycles -->
+      <article class="card">
+        <div class="thumb"></div>
+        <h2 class="name">Cycles</h2>
+        <a class="btn btn-download" href="Lien_zip_images/Cycles/cycles.zip" download>Télécharger</a>
+      </article>
+
+      <!-- Defi-Lyell -->
+      <article class="card">
+        <div class="thumb"></div>
+        <h2 class="name">Defi-Lyell</h2>
+        <a class="btn btn-open" href="https://www.pedagogie.ac-nice.fr/svt/productions/defi-lyell/" target="_blank" rel="noopener">Ouvrir</a>
+      </article>
+
+      <!-- Detsex -->
+      <article class="card">
+        <div class="thumb"></div>
+        <h2 class="name">Detsex</h2>
+        <a class="btn btn-open" href="https://svt.etab.ac-lille.fr/detsex/index.html" target="_blank" rel="noopener">Ouvrir</a>
+      </article>
+
+      <!-- Diastase 2 -->
+      <article class="card">
+        <div class="thumb"></div>
+        <h2 class="name">Diastase 2</h2>
+        <a class="btn btn-open" href="https://www.pedagogie.ac-nice.fr/svt/productions/diastase2/" target="_blank" rel="noopener">Ouvrir</a>
+      </article>
+
+      <!-- Dotplotter -->
+      <article class="card">
+        <div class="thumb"></div>
+        <h2 class="name">Dotplotter</h2>
+        <a class="btn btn-open" href="https://www.pedagogie.ac-nice.fr/svt/productions/dotplotter/" target="_blank" rel="noopener">Ouvrir</a>
+      </article>
+
+      <!-- Ecosysteme (zip manquant dans le dossier) -->
+      <article class="card">
+        <div class="thumb"></div>
+        <h2 class="name">Ecosysteme</h2>
+        <button class="btn btn-missing" type="button" disabled title="Fichier zip absent du dossier Ecosysteme">Fichier manquant</button>
+      </article>
+
+      <!-- Edu'Modèles -->
+      <article class="card">
+        <div class="thumb"></div>
+        <h2 class="name">Edu'Modèles</h2>
+        <a class="btn btn-open" href="https://www.pedagogie.ac-nice.fr/svt/productions/edumodeles/" target="_blank" rel="noopener">Ouvrir</a>
+      </article>
+
+      <!-- Germination -->
+      <article class="card">
+        <div class="thumb"></div>
+        <h2 class="name">Germination</h2>
+        <a class="btn btn-download" href="Lien_zip_images/Germination/germination%20(1).zip" download>Télécharger</a>
+      </article>
+
+      <!-- Meiose -->
+      <article class="card">
+        <div class="thumb"></div>
+        <h2 class="name">Meiose</h2>
+        <a class="btn btn-download" href="Lien_zip_images/Meiose/repartition_chrom_meiose.zip" download>Télécharger</a>
+      </article>
+
+      <!-- Mesurim -->
+      <article class="card">
+        <div class="thumb"></div>
+        <h2 class="name">Mesurim</h2>
+        <a class="btn btn-download" href="Lien_zip_images/Mesurim/Mesurim_20_04_13.zip" download>Télécharger</a>
+      </article>
+
+      <!-- Minusc -->
+      <article class="card">
+        <div class="thumb"></div>
+        <h2 class="name">Minusc</h2>
+        <a class="btn btn-open" href="https://libmol.org/minusc/" target="_blank" rel="noopener">Ouvrir</a>
+      </article>
+
+      <!-- Mitose -->
+      <article class="card">
+        <div class="thumb"></div>
+        <h2 class="name">Mitose</h2>
+        <a class="btn btn-download" href="Lien_zip_images/Mitose/repartition_des_chromosomes_mitose.zip" download>Télécharger</a>
+      </article>
+
+      <!-- Nerf -->
+      <article class="card">
+        <div class="thumb"></div>
+        <h2 class="name">Nerf</h2>
+        <a class="btn btn-download" href="Lien_zip_images/Nerf/Nerf_2021.exe" download>Télécharger</a>
+      </article>
+
+      <!-- Plantes -->
+      <article class="card">
+        <div class="thumb"></div>
+        <h2 class="name">Plantes</h2>
+        <a class="btn btn-open" href="https://www.svtanim.fr/besoins_plantes.htm" target="_blank" rel="noopener">Ouvrir</a>
+      </article>
+
+      <!-- Radiochronologie -->
+      <article class="card">
+        <div class="thumb"></div>
+        <h2 class="name">Radiochronologie</h2>
+        <a class="btn btn-download" href="Lien_zip_images/Radiochronologie/Radiochronologie.zip" download>Télécharger</a>
+      </article>
+
+      <!-- SimClimat -->
+      <article class="card">
+        <div class="thumb"></div>
+        <h2 class="name">SimClimat</h2>
+        <a class="btn btn-download" href="Lien_zip_images/SimClimat/SimClimat.exe" download>Télécharger</a>
+      </article>
+
+      <!-- Somtemp -->
+      <article class="card">
+        <div class="thumb"></div>
+        <h2 class="name">Somtemp</h2>
+        <a class="btn btn-open" href="https://www.pedagogie.ac-nice.fr/svt/productions/somtemp/" target="_blank" rel="noopener">Ouvrir</a>
+      </article>
+
+      <!-- Tectoglob -->
+      <article class="card">
+        <div class="thumb"></div>
+        <h2 class="name">Tectoglob</h2>
+        <a class="btn btn-open" href="https://www.pedagogie.ac-nice.fr/svt/productions/tectoglob3d/" target="_blank" rel="noopener">Ouvrir</a>
+      </article>
+
+      <!-- Transcriptions -->
+      <article class="card">
+        <div class="thumb"></div>
+        <h2 class="name">Transcriptions</h2>
+        <a class="btn btn-download" href="Lien_zip_images/Transcriptions/transcription.zip" download>Télécharger</a>
+      </article>
+
+      <p class="empty" id="empty" hidden>Aucun logiciel ne correspond à votre recherche.</p>
+    </div>
+  </main>
+
+  <footer>
+    Bibliothèque SVT — La Salle Saint-Denis
+  </footer>
+
+  <script>
+    (function () {
+      var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
+
+      // Initiales : sépare le camelCase puis les mots, prend la 1re lettre de
+      // chaque mot (max 2). Pour un seul mot, prend les 2 premières lettres.
+      function initials(name) {
+        var spaced = name.replace(/([a-zà-ÿ])([A-ZÀ-Ý])/g, '$1 $2');
+        var words = spaced.replace(/['']/g, ' ').split(/[\s\-]+/).filter(Boolean);
+        if (words.length > 1) {
+          return (words[0][0] + words[1][0]).toUpperCase();
+        }
+        return name.replace(/[^A-Za-zÀ-ÿ0-9]/g, '').slice(0, 2).toUpperCase();
+      }
+
+      cards.forEach(function (card) {
+        var name = card.querySelector('.name').textContent.trim();
+        card.querySelector('.thumb').textContent = initials(name);
+      });
+
+      var search = document.getElementById('search');
+      var empty = document.getElementById('empty');
+      search.addEventListener('input', function () {
+        var q = search.value.trim().toLowerCase();
+        var visible = 0;
+        cards.forEach(function (card) {
+          var name = card.querySelector('.name').textContent.toLowerCase();
+          var match = name.indexOf(q) !== -1;
+          card.style.display = match ? '' : 'none';
+          if (match) visible++;
+        });
+        empty.hidden = visible !== 0;
+      });
+    })();
+  </script>
+
+</body>
+</html>
